@@ -1,39 +1,52 @@
 # FCM Client
 
-## Description
+This project demonstrates how to use Firebase Cloud Messaging (FCM) to implement push notifications in a Svelte application. FCM is a cross-platform messaging solution that allows you to send messages at no cost.
 
-This is a simple Firebase Cloud Messaging (FCM) client written in JavaScript. The FCM client allows your web application to receive push notifications from a Firebase backend. The code establishes a connection to a Firebase backend using a project-specific Firebase configuration and requests the user's permission to receive notifications. Once the permission is granted, it retrieves a token which can be used to send push notifications to the client. It also logs any received messages to the console.
+## Features
+- Request Notification Permission from User
+- Initialize Firebase Messaging
+- Retrieve FCM Token
+- Send FCM Token to Server
 
-## Setup
+## Getting Started
 
-1. Clone this repository or copy the provided HTML code into an HTML file in your project.
-2. Open the file with your favorite text editor.
-3. Replace the `firebaseConfig` object values with your Firebase project's specific values. The configuration object is defined as follows:
+### Prerequisites
 
-```javascript
-    var firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_AUTH_DOMAIN",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_STORAGE_BUCKET",
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-        appId: "YOUR_APP_ID",
-        measurementId: "YOUR_MEASUREMENT_ID"
-    };
+Before you begin, ensure you have met the following requirements:
+
+- You have installed the latest version of [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/).
+- You have a [Firebase](https://firebase.google.com/) account.
+- You have a web server for your client app (for development purposes, you can use [lite-server](https://www.npmjs.com/package/lite-server), [live-server](https://www.npmjs.com/package/live-server), etc.)
+- You have a basic understanding of [Svelte](https://svelte.dev/) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+
+### Installation
+
+1. Clone the project to your local directory
+
+```bash
+git clone https://github.com/your-username/fcm-client.git
 ```
 
-4. Save the file.
-5. Run the HTML file in a browser. If permission to send notifications is granted, the FCM client will print a token to the console, which you can use to send push notifications.
+2. Go into the project directory
 
-## Usage
-
-When you run the HTML file, the script automatically attempts to obtain permission from the user to display notifications. If permission is granted, the Firebase messaging token is logged to the console. You can use this token to send push notifications to the client.
-
-When a message is received, it is logged to the console. To handle these messages in your own way, replace or extend the `messaging.onMessage` function:
-
-```javascript
-    messaging.onMessage(function(payload) {
-        console.log('Message received. ', payload);
-        // process the payload here
-    });
+```bash
+cd fcm-client
 ```
+
+3. Install the required dependencies
+
+```bash
+npm install
+```
+
+### Usage
+
+To use FCM Client, follow these steps:
+
+1. Replace the `firebaseConfig` in the script with your own Firebase project credentials.
+
+2. Replace the URL in the `sendTokenToServer` function with your own server URL.
+
+3. Run your local web server. If you're using `lite-server`, you can start it with `npm run start`.
+
+4. Open your web browser and navigate to `http://localhost:8000` (or whatever port your server is running on). The application should request notification permissions.
